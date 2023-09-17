@@ -1,13 +1,187 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root{
+  height: 100%;
+}
+
+body{
+  height: 100vh;
+  font-family: 'Encode Sans', sans-serif;
+  background-color: #04111B;
+
+  color: #fff;
+}
+
+.App{
+  margin: 0 auto;
+  width: 60%;
+}
+
+/* header */
+
+header{
+  padding: 10px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #fff;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo img{
+  width: 60px;
+}
+
+nav a{
+  margin-left: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a:hover{
+  color: orange;
+}
+
+/* workouts */
+
+.workouts-body{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.workouts-body button{
+  width: 40%;
+  height: 25px;
+}
+
+.workout-form{
+  padding: 10px;
+  width: 300px;
+  height: 400px;
+  background-color: #04111B;
+  border: 1px solid orange;
+  border-radius: 2px;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.workout-form h3{
+  width: 70%;
+  margin: 0 auto;
+  border-bottom: 1px solid orange;
+}
+
+.workout-form div{
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-form button{
+  margin-top: 5px;
+  width: 100%;
+}
+
+.workouts{
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.workout{
+  position: relative;
+  margin: 5px 0;
+  padding: 10px;
+  width: 70%;
+  border-left: 1px solid orange;
+}
+
+.workout:hover{
+  border-left: 5px solid orange;
+  transition: 300ms;
+}
+
+.workout button{
+  width: 90px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: medium;
+}
+
+.workout button:hover{
+  color: red;
+}
+
+/* btns */
+button{
+  color: #04111B;
+  border: none;
+  border-radius: 5px;
+  background-color: orange;
+  font-size: larger;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #fff;
+}
+
+.authen{
+  margin: 0 auto;
+  padding: 10px;
+  margin-top: 40px;
+  width: 300px;
+  height: 350px;
+  background-color: rgb(255, 255, 255, .2);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.authen div{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+input{
+  padding: 0 5px;
+  height: 25px;
+  border: none;
+  border-radius: 2px;
+}
+
+.authen button{
+  width: 50%;
+  height: 25px;
+  position: absolute;
+  bottom: 40px;
+}
+
+.authen div a{
+  color: #fff;
 }
