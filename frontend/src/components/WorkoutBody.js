@@ -11,22 +11,11 @@ const WorkoutBody = () => {
         setFormVisible(!isFormVisible);
     }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          const response = await axios.post('/', data);
-          
-          setData({ name: '' }); // Clear form fields
-        } catch (error) {
-          console.error('Error creating data:', error);
-        }
-      };
-
     return ( 
         <div className="workouts-body">
         <button onClick={toggleForm} >New Workout</button>
 
-        {isFormVisible && (<form className="workout-form" onSubmit={handleSubmit} >
+        {isFormVisible && (<form className="workout-form" >
             <h3>Add a New Workout</h3>
                 <div>
                     <label htmlFor="">Excersize Title:</label>

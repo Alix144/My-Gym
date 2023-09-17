@@ -5,17 +5,7 @@ import axios from 'axios';
 const Workouts = () => {
 
   const [data, setData] = useState([]);
-    
-  useEffect(() => {
-      // Fetch data from the backend
-      axios.get('/body')
-        .then(response => {
-          setData(response.data); // Update the state with fetched data
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
-    }, []);
+
     
     return ( 
       <div className="workouts">
