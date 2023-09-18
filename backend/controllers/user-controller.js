@@ -24,11 +24,11 @@ export const signup = async(req, res, next) => {
         existingUser = await User.findOne({userName})
 
     }catch(err){
-        return console.log(err)
+        return console.log(err + "there was an nnnnaereoreor")
     }
 
     if(existingUser){
-        return res.status(400).json({message: "User Aleardy Exists! Login Instead"})
+        return res.status(400).json({message: "User Already Exists! Login Instead"})
     }
 
     const hashedPassword = bcrypt.hashSync(password);
@@ -43,7 +43,8 @@ export const signup = async(req, res, next) => {
     try{
         await user.save()
     }catch(err){
-        return console.log(err)
+        console.log(err +"jjjnkn")
+        return res.status(400).json({message: err})
     }
 
     return res.status(201).json({user})

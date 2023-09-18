@@ -1,31 +1,47 @@
 import {Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import { useDispatch } from "react-redux";
 import {authActions} from '../store/index';
 
 
 const Login = () => {
     const dispatch = useDispatch();
+    const [error, setError] = useState('');
 
     const [userName, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
     const navigate = useNavigate()
 
-    const sendRequest = async() => {
-        const res = await axios.post("http://localhost:4000/user/login", {
-            userName,
-            password
-        }).catch(err=>console.log(err))
-
-        const data = await res.data
-        return data;
-    }
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        sendRequest().then((data)=>localStorage.setItem("userId", data.user._id)).then(()=>dispatch(authActions.login())).then(()=>navigate("/body")).then((data) => console.log(data))
+
+        if(!userName && !password){
+            return setError("Please Fill All The Fields!")
+        }else if(!userName){
+            return setError("Username Field is Empty!")
+        }else if(!password){
+            return setError("Password Field is Empty!")
+        }
+
+        try {
+            const res = await axios.post("http://localhost:4000/user/login", {
+                userName,
+                password
+            })
+
+            const data = await res.data
+            
+            localStorage.setItem("userId", data.user._id)
+            dispatch(authActions.login())
+            navigate("/body")
+
+        } catch (err) {
+            console.log(err.response.data.message)
+            setError(err.response.data.message)
+        }
+
     }
 
     return ( 
@@ -40,6 +56,8 @@ const Login = () => {
                 <label htmlFor="pass-sign">Password:</label>
                 <input type="password" id='pass-sign' value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div>
+
+{error && <p style={{color: "#ff5e71"}}>{error}</p>}
 
             <div>
                 <p>Don't have an acount?</p>
