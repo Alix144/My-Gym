@@ -22,4 +22,4 @@ const WorkoutSchema = new Schema({
     }
 })
 
-export default mongoose.model("Workout", blogSchema);
+export default mongoose.model("Workout", WorkoutSchema);
