@@ -25,7 +25,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        sendRequest().then((data)=>localStorage.setItem("userId", data.user._id)).then(()=>dispatch(authActions.login())).then(()=>navigate("/blogs")).then((data) => console.log(data))
+        sendRequest().then((data)=>localStorage.setItem("userId", data.user._id)).then(()=>dispatch(authActions.login())).then(()=>navigate("/body")).then((data) => console.log(data))
     }
 
     return ( 
