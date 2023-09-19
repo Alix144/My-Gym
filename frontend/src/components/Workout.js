@@ -1,15 +1,16 @@
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
-const Workout = ({workout}) => {
+const Workout = ({id, name, load, rep, set}) => {
 
 
 
     return ( 
         <div className="workout">
-            <h2>{workout.title}</h2>
-            <p>load: {workout.load}</p>
-            <p>reps: {workout.reps}</p>
-            <p>{formatDistanceToNow(new Date(workout.createdAt), {addSuffix:true})}</p>
+            <h2>{name}</h2>
+            <p>Load: {load} kg</p>
+            <p>Reps: {rep}</p>
+            <p>Sets: {set}</p>
+            {/* <p>{formatDistanceToNow(new Date(workout.createdAt), {addSuffix:true})}</p> */}
             <button>Delete</button>
         </div>
      );

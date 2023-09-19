@@ -7,6 +7,10 @@ const WorkoutSchema = new Schema({
         type: String,
         required: true,
     },
+    load:{
+        type: Number,
+        required: true,
+    },
     rep:{
         type: Number,
         required: true,

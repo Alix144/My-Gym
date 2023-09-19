@@ -18,7 +18,7 @@ export const getAllWorkouts = async(req, res, next) => {
 }
 
 export const addWorkout = async(req, res, next) => {
-    const {name, rep, set, user} = req.body;
+    const {name, load, rep, set, user} = req.body;
 
     let existingUser;
     try{
@@ -31,7 +31,7 @@ export const addWorkout = async(req, res, next) => {
         return res.status(400).json({message: "Unable to Find User by This ID"})
     }
 
-    const workout = new Workout({name, rep, set, user})
+    const workout = new Workout({name, load, rep, set, user})
     try{
         const session = await mongoose.startSession();
         session.startTransaction();
@@ -50,12 +50,13 @@ export const addWorkout = async(req, res, next) => {
 }
 
 export const updateWorkout = async(req, res, next) => {
-    const {name, rep, set} = req.body;
+    const {name, load, rep, set} = req.body;
     const workoutId = req.params.id;
     let workout;
     try{
         workout = await Workout.findByIdAndUpdate(workoutId,{
             name,
+            load,
             rep,
             set,
         })
