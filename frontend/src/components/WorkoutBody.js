@@ -1,39 +1,73 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-
 const WorkoutBody = () => {
-
+    const [name, setName] = useState("")
+    const [load, setLoad] = useState("0")
+    const [rep, setRep] = useState("1")
+    const [set, setSet] = useState("1");
     const [isFormVisible, setFormVisible] = useState(false);
-    const [data, setData] = useState("");
-
+    const [error, setError] = useState('');
+    
     const toggleForm = () => {
         setFormVisible(!isFormVisible);
+    }
+
+    const handleSubmit = async(e) => {
+        e.preventDefault()
+
+        if(!name || !load || !rep || !set || name.trim() === ""){
+            return setError("Please Fill All The Fields!")
+        }
+
+        try {
+            const res = await axios.post("http://localhost:4000/workout/add", {
+                name,
+                load,
+                rep,
+                set,
+                user: localStorage.getItem('userId'),
+            })
+            toggleForm();
+            window.location.reload();
+            const data = await res.data;
+            return data;
+        } catch (err) {
+            console.log(err)
+            setError("There Was an Error!")
+        }
     }
 
     return ( 
         <div className="workouts-body">
         <button onClick={toggleForm} >New Workout</button>
 
-        {isFormVisible && (<form className="workout-form" >
+        {isFormVisible && (<form className="workout-form" onSubmit={handleSubmit}>
             <h3>Add a New Workout</h3>
                 <div>
                     <label htmlFor="">Excersize Title:</label>
-                    <input type="text"  />
+                    <input type="text"  value={name} onChange={(e)=>{setName(e.target.value)}}/>
                 </div>
     
                 <div>
                     <label htmlFor="">Load(kg):</label>
-                    <input type="number" />
+                    <input type="number" value={load} onChange={(e)=>{setLoad(e.target.value)}}/>
                 </div>
     
                 <div>
                     <label htmlFor="">Reps:</label>
-                    <input type="number" />
+                    <input type="number" value={rep} onChange={(e)=>{setRep(e.target.value)}}/>
                 </div>
-    
+
                 <div>
-                    <button>Add Workout</button>
+                    <label htmlFor="">Sets:</label>
+                    <input type="number" value={set} onChange={(e)=>{setSet(e.target.value)}}/>
+                </div>
+
+                {error && <p style={{color: "#ff5e71"}}>{error}</p>}
+
+                <div>
+                    <button type='submit'>Add Workout</button>
                     <button onClick={toggleForm}>Close</button>
                 </div>
             </form>)}
