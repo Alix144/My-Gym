@@ -5,12 +5,21 @@ import axios from 'axios';
 const Workouts = () => {
 
   const [user, setUser] = useState()
+  const [error, setError] = useState()
+
   const id = localStorage.getItem("userId");
 
   const sendRequest = async() => {
-    const res = await axios.get(`http://localhost:4000/workout/user/${id}`).catch(err=>console.log(err))
-    const data = await res.data;
-    return data;
+
+    try {
+      const res = await axios.get(`http://localhost:4000/workout/user/${id}`).catch(err=>console.log(err))
+      const data = await res.data;
+      return data;
+
+    } catch (err) {
+      console.log(err)
+      setError("There was an error connecting to the Database!")
+    }
   }
 
   useEffect(() => {
@@ -23,6 +32,8 @@ const Workouts = () => {
       <Workout key={index} id={workout._id} name={workout.name} load={workout.load} rep={workout.rep} set={workout.set} />
       ))}
 
+      {error && <p style={{color: "#ff5e71"}}>{error}</p>}
+      
       </div>
      );
 }

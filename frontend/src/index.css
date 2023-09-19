@@ -129,6 +129,14 @@ nav a:hover{
   font-size: medium;
 }
 
+#updateBtn{
+  top: 35px;
+}
+
+#updateBtn:hover{
+  color: orange;
+}
+
 .workout button:hover{
   color: red;
 }

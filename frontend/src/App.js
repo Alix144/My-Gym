@@ -6,6 +6,8 @@ import { authActions } from "./store";
 //components
 import Header from './components/Header';
 import Body from './pages/Body';
+import WorkoutUpdate from './components/WorkoutUpdate';
+import WorkoutAdd from './components/WorkoutAdd';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
@@ -30,7 +32,11 @@ function App() {
               <Route path="/login" element={<Login />}/>
               <Route path="/signup" element={<Signup />}/>
               </> :
+              <>
               <Route path="/body" element={<Body />}/>
+              <Route path="/update/:id" element={<WorkoutUpdate />}/>
+              <Route path="/add" element={<WorkoutAdd />}/>
+              </>
               }
             </Routes>
         </BrowserRouter>

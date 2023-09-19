@@ -78,7 +78,7 @@ export const getById = async(req, res, next) => {
     try{
         workout = await Workout.findById(id)
     }catch(err){
-        return console.log(err)
+        return res.status(400).json({err})
     }
 
     if(!workout){
