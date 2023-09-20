@@ -19,7 +19,7 @@ const WorkoutAdd = () => {
         }
 
         try {
-            const res = await axios.post("http://localhost:4000/workout/add", {
+            const res = await axios.post("https://my-gym-api.vercel.app/workout/add", {
                 name,
                 load,
                 rep,
