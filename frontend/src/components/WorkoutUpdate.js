@@ -37,7 +37,7 @@ const WorkoutUpdate = () => {
         e.preventDefault()
 
         if(!name || load==="" || !rep || !set || name.trim() === ""){
-            return setError("Please Fill All In The Fields!")
+            return setError("Please Fill In All The Fields!")
         }
 
         try {

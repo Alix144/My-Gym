@@ -17,7 +17,7 @@ const Signup = () => {
         e.preventDefault()
 
         if(!userName && !password){
-            return setError("Please Fill All In The Fields!")
+            return setError("Please Fill In All The Fields!")
         }else if(!userName){
             return setError("Username Field is Empty!")
         }else if(!password){
