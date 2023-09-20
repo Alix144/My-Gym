@@ -1,9 +1,8 @@
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 
-const Workout = ({id, name, load, rep, set}) => {
+const Workout = ({id, name, load, rep, set, date}) => {
 
     const navigate = useNavigate();  
 
@@ -25,7 +24,6 @@ const Workout = ({id, name, load, rep, set}) => {
             <p>Load: {load} kg</p>
             <p>Reps: {rep}</p>
             <p>Sets: {set}</p>
-            {/* <p>{formatDistanceToNow(new Date(workout.createdAt), {addSuffix:true})}</p> */}
             <button onClick={handleDelete}>Delete</button>
             <button id='updateBtn' onClick={()=>navigate(`/update/${id}`)}>Edit</button>
             

@@ -10,9 +10,8 @@ const Workouts = () => {
   const id = localStorage.getItem("userId");
 
   const sendRequest = async() => {
-
     try {
-      const res = await axios.get(`http://localhost:4000/workout/user/${id}`).catch(err=>console.log(err))
+      const res = await axios.get(`http://localhost:4000/workout/user/${id}`)
       const data = await res.data;
       return data;
 

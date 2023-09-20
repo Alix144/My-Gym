@@ -125,12 +125,12 @@ nav a:hover{
   height: 20px;
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 35px;
   font-size: medium;
 }
 
 #updateBtn{
-  top: 35px;
+  top: 10px;
 }
 
 #updateBtn:hover{

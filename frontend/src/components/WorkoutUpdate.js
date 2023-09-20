@@ -25,7 +25,6 @@ const WorkoutUpdate = () => {
     useEffect(()=>{ 
         fetchDetails()
         .then((data)=>{
-            console.log(data)
             setName(data.workout.name);
             setLoad(data.workout.load);
             setRep(data.workout.rep)
