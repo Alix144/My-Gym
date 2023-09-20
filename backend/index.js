@@ -15,10 +15,6 @@ app.use(express.json())
 app.use("/user", router)
 app.use("/workout", workoutRouter)
 
-app.get("/", (req, res)=>{
-    res.send({message: "It's working"})
-})
-
 mongoose.connect(process.env.MONGO_URL)
 .then(() => app.listen(port, () => {
     console.log("Live on port " + port)
