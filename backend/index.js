@@ -10,7 +10,15 @@ const port = process.env.port;
 const app = express();
 
 app.use(cors({
-    origin: ["http://localhost:3000", "https://mern-my-gym.onrender.com"],
+    origin: ["http://localhost:3000",
+    "https://mern-my-gym.onrender.com",
+    "https://mern-my-gym.onrender.com/login",
+    "https://mern-my-gym.onrender.com/signup",
+    "https://mern-my-gym.onrender.com/body",
+    "https://mern-my-gym.onrender.com/add",
+    "https://mern-my-gym.onrender.com/update",
+    
+],
 }))
 app.use(express.json())
 
