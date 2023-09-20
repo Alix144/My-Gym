@@ -61,7 +61,7 @@ const Login = () => {
 
             <div>
                 <p>Don't have an acount?</p>
-                <Link to={"/signup"}>Signup</Link>
+                <Link to={"/signup"} >Signup</Link>
             </div>
 
             <button type='submit'>Log in</button>

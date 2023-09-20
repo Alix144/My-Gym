@@ -20,6 +20,7 @@ body{
   margin: 0 auto;
   height: 100vh;
   width: 60%;
+  min-width: 360;
 }
 
 /* header */
@@ -41,6 +42,7 @@ header{
 
 .logo img{
   width: 60px;
+  margin-right: 5px;
 }
 
 nav a{
@@ -60,10 +62,11 @@ nav a:hover{
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
+
 .workouts-body button{
   width: 40%;
+  min-width: 150px;
   height: 25px;
 }
 
@@ -76,7 +79,7 @@ nav a:hover{
   border-radius: 2px;
   z-index: 10;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -92,13 +95,16 @@ nav a:hover{
 }
 
 .workout-form div{
+  margin: 0 auto;
+  width: 80%;
   display: flex;
   flex-direction: column;
 }
 
 .workout-form button{
+  margin: 0 auto;
   margin-top: 5px;
-  width: 100%;
+  width: 70%;
 }
 
 .workouts{
@@ -114,7 +120,18 @@ nav a:hover{
   margin: 5px 0;
   padding: 10px;
   width: 70%;
+  min-width: 360px;
   border-left: 1px solid orange;
+}
+
+.workout h2{
+  max-width: 50%;
+  overflow: hidden;
+}
+
+.workout p{
+  max-width: 50%;
+  overflow: hidden;
 }
 
 .workout:hover{
@@ -193,7 +210,11 @@ input{
 }
 
 .authen div a{
-  color: #fff;
+  color: rgb(52, 140, 255);
+}
+
+.authen div a:hover{
+  color: rgb(255, 255, 255);
 }
 
 .landing-page{
@@ -229,4 +250,71 @@ input{
 .landingPage-btn{
   margin-top: 20px;
   width: 150px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .App{
+    width: 90%;
+    min-width: 0;
+  }
+
+  /* header */
+  header{
+    min-width: 0;
+  }
+
+  .logo img{
+    width: 40px;
+  }
+
+  .logo h1{
+    font-size: 20px;
+  }
+
+  .authen{
+    width: 250px;
+    height: 350px;
+  }
+
+  .landing-page{
+    height: 300px;
+  }
+
+  .landing-page h1{
+    font-size: 20px;
+  }
+  
+  .landing-page img{
+    width: 200px;
+  }
+
+  .landingPage-btn{
+    margin-top: 0;
+  }
+
+  .workout{
+    width: 90%;
+    min-width: 0;
+  }
+
+  .workout button{
+    width: 70px;
+    font-size: small;
+  }
+
+  .workout h2{
+    font-size: 20px;
+  }
+
+  .workout p{
+    font-size: 15px;
+  }
+
+  .workout-form{
+    width: 60%;
+    min-width: 240px;
+    height: 350px;
+  }
+
 }
