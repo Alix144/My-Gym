@@ -9,7 +9,7 @@ const Workout = ({id, name, load, rep, set, date}) => {
     const handleDelete = async() => {
 
         try {
-            const res = axios.delete(`https://my-gym-api.vercel.app/workout/${id}`)
+            const res = axios.delete(`http://localhost:4000/workout/${id}`)
             const data = await res.data;
             console.log(data)
             window.location.reload();

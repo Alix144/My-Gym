@@ -9,7 +9,9 @@ config();
 const port = process.env.port;
 const app = express();
 
-app.use(cors())
+app.use(cors({
+    origin: ["http://localhost:3000", "https://mern-my-gym.onrender.com"],
+}))
 app.use(express.json())
 
 app.use("/user", router)

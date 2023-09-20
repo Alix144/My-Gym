@@ -14,7 +14,7 @@ const WorkoutUpdate = () => {
 
     const fetchDetails = async() => {
         try {
-            const res = await axios.get(`https://my-gym-api.vercel.app/workout/${id}`)
+            const res = await axios.get(`http://localhost:4000/workout/${id}`)
             const data = await res.data;
             return data;
         } catch (err) {
@@ -41,7 +41,7 @@ const WorkoutUpdate = () => {
         }
 
         try {
-            const res = await axios.put(`https://my-gym-api.vercel.app/workout/update/${id}`,{
+            const res = await axios.put(`http://localhost:4000/workout/update/${id}`,{
                 name,
                 load,
                 rep,

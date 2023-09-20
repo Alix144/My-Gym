@@ -26,7 +26,7 @@ const Login = () => {
         }
 
         try {
-            const res = await axios.post("https://my-gym-api.vercel.app/user/login", {
+            const res = await axios.post("http://localhost:4000/user/login", {
                 userName,
                 password
             })
