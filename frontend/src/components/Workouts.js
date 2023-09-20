@@ -11,7 +11,7 @@ const Workouts = () => {
 
   const sendRequest = async() => {
     try {
-      const res = await axios.get(`http://localhost:4000/workout/user/${id}`)
+      const res = await axios.get(`https://mern-my-gym-api.onrender.com/workout/user/${id}`)
       const data = await res.data;
       return data;
 

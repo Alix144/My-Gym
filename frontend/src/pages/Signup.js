@@ -25,7 +25,7 @@ const Signup = () => {
         }
 
         try {
-            const res = await axios.post("http://localhost:4000/user/signup", {
+            const res = await axios.post("https://mern-my-gym-api.onrender.com/user/signup", {
                 userName,
                 password
             })
