@@ -9,7 +9,11 @@ config();
 const port = process.env.port;
 const app = express();
 
-app.use(cors())
+app.use(cors({
+    origin: ["https://my-gym-api.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"]
+}))
+
 app.use(express.json())
 
 app.use("/user", router)
