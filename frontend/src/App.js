@@ -11,6 +11,7 @@ import WorkoutAdd from './components/WorkoutAdd';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import LandingPage from './pages/LandingPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   const isLoggedIn = useSelector(state => state.isLoggedIn);
@@ -33,11 +34,13 @@ function App() {
               <Route path="/login" element={<Login />}/>
               <Route path="/signup" element={<Signup />}/>
               <Route path="/" element={<LandingPage />}/>
+              <Route path="*" element={<NotFoundPage />} />
               </> :
               <>
               <Route path="/body" element={<Body />}/>
               <Route path="/update/:id" element={<WorkoutUpdate />}/>
               <Route path="/add" element={<WorkoutAdd />}/>
+              <Route path="*" element={<NotFoundPage />} />
               </>
               }
             </Routes>
