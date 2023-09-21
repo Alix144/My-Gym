@@ -12,7 +12,7 @@ const Workout = ({id, name, load, rep, set, date}) => {
             const res = axios.delete(`https://mern-my-gym-api.onrender.com/workout/${id}`)
             const data = await res.data;
             console.log(data)
-            window.location.reload();
+            navigate("body")
         } catch (err) {
             console.log(err)
         }
