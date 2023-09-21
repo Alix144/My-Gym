@@ -38,6 +38,7 @@ function App() {
               </> :
               <>
               <Route path="/body" element={<Body />}/>
+              <Route path="/" element={<Body />}/>
               <Route path="/update/:id" element={<WorkoutUpdate />}/>
               <Route path="/add" element={<WorkoutAdd />}/>
               <Route path="*" element={<NotFoundPage />} />

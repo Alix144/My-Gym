@@ -9,10 +9,10 @@ const Workout = ({id, name, load, rep, set, date}) => {
     const handleDelete = async() => {
 
         try {
-            const res = axios.delete(`https://mern-my-gym-api.onrender.com/workout/${id}`)
+            const res = axios.delete(`https://mern-my-gym-api.onrender.com/workout/${id}`).then(()=>window.location.reload())
             const data = await res.data;
             console.log(data)
-            navigate("body")
+            
         } catch (err) {
             console.log(err)
         }
