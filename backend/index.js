@@ -18,6 +18,7 @@ app.use(express.json())
 
 app.use("/user", router)
 app.use("/workout", workoutRouter)
+app.get("*", (req, res)=>{res.send({message:"404 not found"})})
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => app.listen(port, () => {

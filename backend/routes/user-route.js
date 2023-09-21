@@ -6,5 +6,6 @@ const router = express.Router();
 router.get("/", getAllUser)
 router.post("/signup", signup)
 router.post("/login", login)
+router.get("/*", (req, res)=>{res.send({message:"404 not found"})})
 
 export default router;

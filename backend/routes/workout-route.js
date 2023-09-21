@@ -8,5 +8,6 @@ workoutRouter.put("/update/:id", updateWorkout)
 workoutRouter.get("/:id", getById)
 workoutRouter.delete("/:id", deleteWorkout)
 workoutRouter.get("/user/:id", getByUserId)
+workoutRouter.get("/*", (req, res)=>{res.send({message:"404 not found"})})
 
 export default workoutRouter;
