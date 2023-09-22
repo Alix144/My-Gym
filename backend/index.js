@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from 'cors';
+import path from 'path';
 import router from "./routes/user-route.js";
 import workoutRouter from "./routes/workout-route.js";
 import { config } from 'dotenv';
@@ -8,6 +9,8 @@ config();
 
 const port = process.env.port;
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(cors({
     origin: ["http://localhost:3000",
@@ -21,6 +24,10 @@ app.use(express.json())
 // app.use((req, res, next) => {
 //     res.sendFile(path.join(__dirname, 'html', 'index.html'));
 //   });
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
 
 app.use("/user", router)
 app.use("/workout", workoutRouter)
