@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from 'cors';
 import path from 'path';
+const __dirname = path.resolve();
 import router from "./routes/user-route.js";
 import workoutRouter from "./routes/workout-route.js";
 import { config } from 'dotenv';
