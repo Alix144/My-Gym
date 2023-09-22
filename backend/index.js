@@ -14,11 +14,13 @@ app.use(cors({
     "https://mern-my-gym.onrender.com",
 ],
 }))
+
+
 app.use(express.json())
 
-app.use((req, res, next) => {
-    res.sendFile(path.join(__dirname, 'html', 'index.html'));
-  });
+// app.use((req, res, next) => {
+//     res.sendFile(path.join(__dirname, 'html', 'index.html'));
+//   });
 
 app.use("/user", router)
 app.use("/workout", workoutRouter)
