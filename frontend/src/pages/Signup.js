@@ -24,6 +24,10 @@ const Signup = () => {
             return setError("Password Field is Empty!")
         }
 
+        if(password.length < 8){
+            return setError("Password Length Should Be At least 8 Characters Long!")
+        }
+
         try {
             const res = await axios.post("https://mern-my-gym-api.onrender.com/user/signup", {
                 userName,
