@@ -22,18 +22,14 @@ app.use(cors({
 
 app.use(express.json())
 
-// app.use((req, res, next) => {
-//     res.sendFile(path.join(__dirname, 'html', 'index.html'));
-//   });
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
-
 app.use("/user", router)
 app.use("/workout", workoutRouter)
 app.get("*", (req, res)=>{res.send({message:"404 not found"})})
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+  
 mongoose.connect(process.env.MONGO_URL)
 .then(() => app.listen(port, () => {
     console.log("Live on port " + port)

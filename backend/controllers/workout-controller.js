@@ -111,13 +111,15 @@ export const getByUserId = async(req, res, next) => {
     let userWorkouts;
     try{
         userWorkouts = await User.findById(userId).populate("workout")
+        if(!userWorkouts){
+            return res.status(404).json({message: "No Workout Found"})
+        }
     }catch(err){
-        return console.log(err)
+        console.log(err)
+        return res.status(404).json({message: "Noooomo Workout Found"})
     }
 
-    if(!userWorkouts){
-        return res.status(404).json({message: "No Workout Found"})
-    }
+
 
     return res.status(200).json({user: userWorkouts})
 }
